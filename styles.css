@@ -98,9 +98,8 @@ form {
     padding-bottom: 20px;
 }
 
-#title, #author, #number {
+#title, #author, #pages {
     width: 100%; 
-    text-align: right;
 }
 
 form button {
