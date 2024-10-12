@@ -5,6 +5,7 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+
 .header {
     background-color: cornflowerblue;
     padding: 15px;
@@ -16,10 +17,12 @@
 
 .main {
     background-color: rgb(230, 230, 230);
-    height: 85vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start
+    height: 80vh;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    overflow-y: scroll;
 }
 
 .open-button {
@@ -40,13 +43,13 @@ button:hover {
     background-color: white;
     padding: 20px;
     border: 2px solid black;
+    width: 100%;
+    box-sizing: border-box;
     border-radius: 5px;
-    width: 200px;
-    height: 200px;
-    margin: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
+    height: 300px;
 }
 
 .read-icon {
