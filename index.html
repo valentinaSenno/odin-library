@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+    <div class="header">
+        <h1>My Library</h1>
+        <button class="open-button" id="open-button">Add new book</button>
+    </div>
+    <div class="main">
+        <div class="book">
+            <img class="delete-icon" src="delete-1-svgrepo-com.svg" alt="delete icon" style="width: 30px;">
+            <img src="book-open-svgrepo-com.svg" id="book-image" alt="book icon" style="width: 80px;">
+            <p class="title">Title:</p>
+            <p class="author">Author:</p>
+            <p class="pages">Pages:</p>
+            <img class="read-icon" src="check-circle.svg" alt="check icon" style="width: 20px;">
+        </div>
+    </div>
+    <dialog id="add-form">
+        <h3>Add a new book</h3>
+        <form>
+            <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title">
+            </div>
+            <div>
+            <label for="author">Author:</label>
+            <input type="text" id="author">
+            </div>
+            <div>
+            <label for="pages">Pages:</label>
+            <input type="number" id="number">
+            </div>
+            <div>
+                <label for="read">Read:</label>
+                <input type="checkbox">
+            </div>
+            <button>Add book</button>
+        </form>
+        <button autofocus id="close-button">Close</button>
+    </dialog>
+</body>
+</html>
