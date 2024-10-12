@@ -41,6 +41,30 @@ function addBookToLibrary() {
 
   console.log(myLibrary); 
 
+  const bookContainer = document.getElementById('container');
+  bookContainer.innerHTML = '';
+
+  myLibrary.forEach(item => {
+    const book = document.createElement('div');
+    book.classList.add('book');
+
+    const readIcon = !item.read ? '<img class="read-icon" src="check-circle.svg" alt="check icon" style="width: 20px;">' : '<p>Read</p>';
+
+    book.innerHTML = `
+        <img class="delete-icon" src="delete-1-svgrepo-com.svg" alt="delete icon" style="width: 30px;">
+              <img src="book-open-svgrepo-com.svg" id="book-image" alt="book icon" style="width: 80px;">
+              <p class="title">Title: ${item.title}</p>
+              <p class="author">Author: ${item.author}</p>
+              <p class="pages">Pages: ${item.pages}</p>
+              ${readIcon}
+    `;
+
+    bookContainer.appendChild(book);
+});
+
+clearInput();
+dialog.close();
+
   });
 }
 
