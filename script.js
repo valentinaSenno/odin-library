@@ -41,14 +41,21 @@ function addBookToLibrary() {
 
   console.log(myLibrary); 
 
+  renderBooks();
+  clearInput();
+  dialog.close();
+});
+}
+
+function renderBooks() {
   const bookContainer = document.getElementById('container');
   bookContainer.innerHTML = '';
 
-  myLibrary.forEach(item => {
+  myLibrary.forEach((item, index) => {
     const book = document.createElement('div');
     book.classList.add('book');
 
-    const readIcon = !item.read ? '<img class="read-icon" src="check-circle.svg" alt="check icon" style="width: 20px;">' : '<p>Read</p>';
+    const readIcon = item.read ? '<p>Read</p>' : '<img class="read-icon" src="check-circle.svg" alt="check icon" style="width: 20px;">';
 
     book.innerHTML = `
         <img class="delete-icon" src="delete-1-svgrepo-com.svg" alt="delete icon" style="width: 30px;">
@@ -56,18 +63,26 @@ function addBookToLibrary() {
               <p class="title">Title: ${item.title}</p>
               <p class="author">Author: ${item.author}</p>
               <p class="pages">Pages: ${item.pages}</p>
-              ${readIcon}
+               <span class="read-status">${readIcon}</span>
     `;
 
+    const readStatus = book.querySelector('.read-status');
+
+    readStatus.addEventListener("click", () => {
+      item.read = !item.read;
+      renderBooks(); 
+    });
+
+        const deleteIcon = book.querySelector('.delete-icon');
+    deleteIcon.addEventListener("click", () => {
+      myLibrary.splice(index, 1); 
+      renderBooks(); 
+    });
+
     bookContainer.appendChild(book);
-});
-
-clearInput();
-dialog.close();
-
   });
 }
-
+  
 function clearInput() {
   document.getElementById('title').value = '';
   document.getElementById('author').value = '';
@@ -75,4 +90,4 @@ function clearInput() {
   document.getElementById('read').checked = false;
 }
 
-addButton.addEventListener("click", addBookToLibrary());
+addBookToLibrary();
